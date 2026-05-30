@@ -1,7 +1,12 @@
 package io.github.dandidev.hamdsl.dsl
 
 import io.github.dandidev.hamdsl.SI
-import io.github.dandidev.hamdsl.units.*
+import io.github.dandidev.hamdsl.units.log.Db
+import io.github.dandidev.hamdsl.units.log.Dbm
+import io.github.dandidev.hamdsl.units.si.Ampere
+import io.github.dandidev.hamdsl.units.si.Ohm
+import io.github.dandidev.hamdsl.units.si.Volt
+import io.github.dandidev.hamdsl.units.si.Watt
 
 //Watt
 val Number.GW get() = Watt(toDouble() * SI.GIGA)

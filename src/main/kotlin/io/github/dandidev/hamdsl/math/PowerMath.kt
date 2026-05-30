@@ -1,9 +1,9 @@
 package io.github.dandidev.hamdsl.math
 
-import io.github.dandidev.hamdsl.units.Dbm
-import io.github.dandidev.hamdsl.units.Ohm
-import io.github.dandidev.hamdsl.units.Volt
-import io.github.dandidev.hamdsl.units.Watt
+import io.github.dandidev.hamdsl.units.log.Dbm
+import io.github.dandidev.hamdsl.units.si.Ohm
+import io.github.dandidev.hamdsl.units.si.Volt
+import io.github.dandidev.hamdsl.units.si.Watt
 import kotlin.math.log10
 import kotlin.math.pow
 

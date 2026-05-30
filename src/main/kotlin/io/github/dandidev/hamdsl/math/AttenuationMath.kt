@@ -1,7 +1,7 @@
 package io.github.dandidev.hamdsl.math
 
-import io.github.dandidev.hamdsl.units.Db
-import io.github.dandidev.hamdsl.units.Dbm
+import io.github.dandidev.hamdsl.units.log.Db
+import io.github.dandidev.hamdsl.units.log.Dbm
 
 /**
  * Adds two logarithmic attenuation or gain values.

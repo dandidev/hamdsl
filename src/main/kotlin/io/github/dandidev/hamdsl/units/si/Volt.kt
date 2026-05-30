@@ -1,22 +1,10 @@
-package io.github.dandidev.hamdsl.units
+package io.github.dandidev.hamdsl.units.si
 
 import io.github.dandidev.hamdsl.SI
 import io.github.dandidev.hamdsl.dsl.ScaledUnit
-import kotlin.math.abs
 
 @JvmInline
-value class Volt(val value: Double) {
-    override fun toString() =
-        when {
-            abs(value) >= SI.GIGA -> asGigaVolt().toString()
-            abs(value) >= SI.MEGA -> asMegaVolt().toString()
-            abs(value) >= SI.KILO -> asKiloVolt().toString()
-            abs(value) >= 1.0 -> asVolt().toString()
-            abs(value) >= SI.MILLI -> asMilliVolt().toString()
-            abs(value) >= SI.MICRO -> asMicroVolt().toString()
-            else -> asNanoVolt().toString()
-        }
-}
+value class Volt(val value: Double)
 
 fun Volt.asGigaVolt(): ScaledUnit =
     ScaledUnit(value / SI.GIGA, "GV")

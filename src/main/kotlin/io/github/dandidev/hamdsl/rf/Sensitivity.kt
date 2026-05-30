@@ -1,7 +1,7 @@
 package io.github.dandidev.hamdsl.rf
 
-import io.github.dandidev.hamdsl.units.Dbm
-import io.github.dandidev.hamdsl.units.Volt
+import io.github.dandidev.hamdsl.units.log.Dbm
+import io.github.dandidev.hamdsl.units.si.Volt
 import kotlin.math.log10
 
 /**
