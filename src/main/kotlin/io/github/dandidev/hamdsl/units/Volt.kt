@@ -1,66 +1,46 @@
 package io.github.dandidev.hamdsl.units
 
-import java.util.Locale
+import io.github.dandidev.hamdsl.SI
+import io.github.dandidev.hamdsl.dsl.ScaledUnit
+import kotlin.math.abs
 
 @JvmInline
 value class Volt(val value: Double) {
     override fun toString() =
-        String.format(Locale.US, "%.4f V", value)
+        when {
+            abs(value) >= SI.GIGA -> asGigaVolt().toString()
+            abs(value) >= SI.MEGA -> asMegaVolt().toString()
+            abs(value) >= SI.KILO -> asKiloVolt().toString()
+            abs(value) >= 1.0 -> asVolt().toString()
+            abs(value) >= SI.MILLI -> asMilliVolt().toString()
+            abs(value) >= SI.MICRO -> asMicroVolt().toString()
+            else -> asNanoVolt().toString()
+        }
 }
 
-@JvmInline
-value class MilliVolt(val value: Double) {
-    override fun toString() =
-        String.format(Locale.US, "%.4f mV", value)
-}
+fun Volt.asGigaVolt(): ScaledUnit =
+    ScaledUnit(value / SI.GIGA, "GV")
 
-@JvmInline
-value class MicroVolt(val value: Double) {
-    override fun toString() =
-        String.format(Locale.US, "%.4f µV", value)
-}
+fun Volt.asMegaVolt(): ScaledUnit =
+    ScaledUnit(value / SI.MEGA, "MV")
 
-@JvmInline
-value class NanoVolt(val value: Double) {
-    override fun toString() =
-        String.format(Locale.US, "%.4f nV", value)
-}
+fun Volt.asKiloVolt(): ScaledUnit =
+    ScaledUnit(value / SI.KILO, "kV")
 
-fun Volt.toMilliVolt(): MilliVolt =
-    MilliVolt(value * 1e3)
+fun Volt.asVolt(): ScaledUnit =
+    ScaledUnit(value, "V")
 
-fun Volt.toMicroVolt(): MicroVolt =
-    MicroVolt(value * 1e6)
+fun Volt.asMilliVolt(): ScaledUnit =
+    ScaledUnit(value / SI.MILLI, "mV")
 
-fun Volt.toNanoVolt(): NanoVolt =
-    NanoVolt(value * 1e9)
+fun Volt.asMicroVolt(): ScaledUnit =
+    ScaledUnit(value / SI.MICRO, "µV")
 
-fun MilliVolt.toVolt(): Volt =
-    Volt(value / 1e3)
-
-fun MilliVolt.toMicroVolt(): MicroVolt =
-    MicroVolt(value * 1e3)
-
-fun MilliVolt.toNanoVolt(): NanoVolt =
-    NanoVolt(value * 1e6)
-
-fun MicroVolt.toVolt(): Volt =
-    Volt(value / 1e6)
-
-fun MicroVolt.toMilliVolt(): MilliVolt =
-    MilliVolt(value / 1e3)
-
-fun MicroVolt.toNanoVolt(): NanoVolt =
-    NanoVolt(value * 1e3)
-
-fun NanoVolt.toVolt(): Volt =
-    Volt(value / 1e9)
-
-fun NanoVolt.toMilliVolt(): MilliVolt =
-    MilliVolt(value / 1e6)
-
-fun NanoVolt.toMicroVolt(): MicroVolt =
-    MicroVolt(value / 1e3)
+fun Volt.asNanoVolt(): ScaledUnit =
+    ScaledUnit(value / SI.NANO, "nV")
 
 operator fun Volt.div(resistance: Ohm): Ampere =
     Ampere(value / resistance.value)
+
+operator fun Volt.div(current: Ampere): Ohm =
+    Ohm(value / current.value)

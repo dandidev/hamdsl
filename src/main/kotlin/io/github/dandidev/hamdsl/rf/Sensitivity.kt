@@ -1,7 +1,7 @@
 package io.github.dandidev.hamdsl.rf
 
 import io.github.dandidev.hamdsl.units.Dbm
-import io.github.dandidev.hamdsl.units.MicroVolt
+import io.github.dandidev.hamdsl.units.Volt
 import kotlin.math.log10
 
 /**
@@ -52,8 +52,7 @@ import kotlin.math.log10
  *     P[dBm] = 10 * log10(8.0000e-13)
  *     P[dBm] = -120.9691 dBm
  */
-fun MicroVolt.toDbm(impedanceOhm: Double = 50.0): Dbm {
-    val volt = value * 1e-6
-    val watt = (volt * volt) / impedanceOhm
+fun Volt.toDbm(impedanceOhm: Double = 50.0): Dbm {
+    val watt = (value * value) / impedanceOhm
     return Dbm(10.0 * log10(watt * 1000.0))
 }

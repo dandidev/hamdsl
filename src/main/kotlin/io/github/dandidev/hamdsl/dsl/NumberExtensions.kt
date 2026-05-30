@@ -1,72 +1,88 @@
 package io.github.dandidev.hamdsl.dsl
 
-import io.github.dandidev.hamdsl.units.Ampere
-import io.github.dandidev.hamdsl.units.Db
-import io.github.dandidev.hamdsl.units.Dbm
-import io.github.dandidev.hamdsl.units.KiloAmpere
-import io.github.dandidev.hamdsl.units.KiloOhm
-import io.github.dandidev.hamdsl.units.MegaOhm
-import io.github.dandidev.hamdsl.units.MicroAmpere
-import io.github.dandidev.hamdsl.units.MicroVolt
-import io.github.dandidev.hamdsl.units.MicroWatt
-import io.github.dandidev.hamdsl.units.MilliAmpere
-import io.github.dandidev.hamdsl.units.MilliVolt
-import io.github.dandidev.hamdsl.units.MilliWatt
-import io.github.dandidev.hamdsl.units.NanoVolt
-import io.github.dandidev.hamdsl.units.Ohm
-import io.github.dandidev.hamdsl.units.Volt
-import io.github.dandidev.hamdsl.units.Watt
+import io.github.dandidev.hamdsl.SI
+import io.github.dandidev.hamdsl.units.*
 
 //Watt
+val Number.GW get() = Watt(toDouble() * SI.GIGA)
+val Number.gigaWatt get() = Watt(toDouble() * SI.GIGA)
+@get:JvmName("getMegaW")
+val Number.MW get() = Watt(toDouble() * SI.MEGA)
+val Number.megaWatt get() = Watt(toDouble() * SI.MEGA)
+val Number.kW get() = Watt(toDouble() * SI.KILO)
+val Number.kiloWatt get() = Watt(toDouble() * SI.KILO)
 val Number.W get() = Watt(toDouble())
 val Number.Watt get() = Watt(toDouble())
-val Number.mW get() = MilliWatt(toDouble())
-val Number.milliWatt get() = MilliWatt(toDouble())
-val Number.uW get() = MicroWatt(toDouble())
-val Number.microWatt get() = MicroWatt(toDouble())
+@get:JvmName("getMilliW")
+val Number.mW get() = Watt(toDouble() * SI.MILLI)
+val Number.milliWatt get() = Watt(toDouble() * SI.MILLI)
+val Number.uWatt get() = Watt(toDouble() * SI.MICRO)
+val Number.microWatt get() = Watt(toDouble() * SI.MICRO)
+val Number.nW get() = Watt(toDouble() * SI.NANO)
+val Number.nanoWatt get() = Watt(toDouble() * SI.NANO)
 
 // Volt
+val Number.GV get() = Volt(toDouble() * SI.GIGA)
+val Number.gigaVolt get() = Volt(toDouble() * SI.GIGA)
+@get:JvmName("getMegaV")
+val Number.MV get() = Volt(toDouble() * SI.MEGA)
+val Number.megaVolt get() = Volt(toDouble() * SI.MEGA)
+val Number.kV get() = Volt(toDouble() * SI.KILO)
+val Number.kiloVolt get() = Volt(toDouble() * SI.KILO)
 val Number.V get() = Volt(toDouble())
 val Number.Volt get() = Volt(toDouble())
-
-val Number.mV get() = MilliVolt(toDouble())
-val Number.milliVolt get() = MilliVolt(toDouble())
-
-val Number.uV get() = MicroVolt(toDouble())
-val Number.microVolt get() = MicroVolt(toDouble())
-
-val Number.nV get() = NanoVolt(toDouble())
-val Number.nanoVolt get() = NanoVolt(toDouble())
+@get:JvmName("getMilliV")
+val Number.mV get() = Volt(toDouble() * SI.MILLI)
+val Number.milliVolt get() = Volt(toDouble() * SI.MILLI)
+val Number.uV get() = Volt(toDouble() * SI.MICRO)
+val Number.microVolt get() = Volt(toDouble() * SI.MICRO)
+val Number.nV get() = Volt(toDouble() * SI.NANO)
+val Number.nanoVolt get() = Volt(toDouble() * SI.NANO)
 
 //Ohm
-val Number.Ohm: Ohm
-    get() = Ohm(toDouble())
-
-val Number.kOhm: KiloOhm
-    get() = KiloOhm(toDouble())
-
-val Number.kiloOhm: KiloOhm
-    get() = KiloOhm(toDouble())
-
-val Number.MOhm: MegaOhm
-    get() = MegaOhm(toDouble())
-
-val Number.megaOhm: MegaOhm
-    get() = MegaOhm(toDouble())
+val Number.GOhm get() = Ohm(toDouble() * SI.GIGA)
+val Number.gigaOhm get() = Ohm(toDouble() * SI.GIGA)
+@get:JvmName("getMegaO")
+val Number.MOhm get() = Ohm(toDouble() * SI.MEGA)
+val Number.megaOhm get() = Ohm(toDouble() * SI.MEGA)
+val Number.kOhm get() = Ohm(toDouble() * SI.KILO)
+val Number.kiloOhm get() = Ohm(toDouble() * SI.KILO)
+val Number.Ohm get() = Ohm(toDouble())
+@get:JvmName("getMilliO")
+val Number.mOhm get() = Ohm(toDouble() * SI.MILLI)
+val Number.milliOhm get() = Ohm(toDouble() * SI.MILLI)
+val Number.uOhm get() = Ohm(toDouble() * SI.MICRO)
+val Number.microOhm get() = Ohm(toDouble() * SI.MICRO)
+val Number.nOhm get() = Ohm(toDouble() * SI.NANO)
+val Number.nanoOhm get() = Ohm(toDouble() * SI.NANO)
 
 //Ampere
+val Number.GA get() = Ampere(toDouble() * SI.GIGA)
+val Number.gigaAmpere get() = Ampere(toDouble() * SI.GIGA)
+@get:JvmName("getMegaA")
+val Number.MA get() = Ampere(toDouble() * SI.MEGA)
+val Number.megaAmpere get() = Ampere(toDouble() * SI.MEGA)
+val Number.kA get() = Ampere(toDouble() * SI.KILO)
+val Number.kiloAmpere get() = Ampere(toDouble() * SI.KILO)
 val Number.A get() = Ampere(toDouble())
-val Number.ampere get() = Ampere(toDouble())
-
-val Number.mA get() = MilliAmpere(toDouble())
-val Number.milliAmpere get() = MilliAmpere(toDouble())
-
-val Number.uA get() = MicroAmpere(toDouble())
-val Number.microAmpere get() = MicroAmpere(toDouble())
-
-val Number.kA get() = KiloAmpere(toDouble())
-val Number.kiloAmpere get() = KiloAmpere(toDouble())
+val Number.Ampere get() = Ampere(toDouble())
+@get:JvmName("getMilliA")
+val Number.mA get() = Ampere(toDouble() * SI.MILLI)
+val Number.milliAmpere get() = Ampere(toDouble() * SI.MILLI)
+val Number.uA get() = Ampere(toDouble() * SI.MICRO)
+val Number.microAmpere get() = Ampere(toDouble() * SI.MICRO)
+val Number.nA get() = Ampere(toDouble() * SI.NANO)
+val Number.nanoAmpere get() = Ampere(toDouble() * SI.NANO)
 
 //dB
 val Number.dB get() = Db(toDouble())
 val Number.dBm get() = Dbm(toDouble())
+
+//unit of measure
+data class ScaledUnit(
+    val value: Double,
+    val symbol: String
+) {
+    override fun toString(): String =
+        "%.4f %s".format(value, symbol)
+}
