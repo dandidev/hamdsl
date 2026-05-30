@@ -1,4 +1,9 @@
-import io.github.dandidev.hamdsl.dsl.*
+import io.github.dandidev.hamdsl.dsl.log.dB
+import io.github.dandidev.hamdsl.dsl.log.dBm
+import io.github.dandidev.hamdsl.dsl.si.A
+import io.github.dandidev.hamdsl.dsl.si.Ohm
+import io.github.dandidev.hamdsl.dsl.si.V
+import io.github.dandidev.hamdsl.dsl.si.mA
 import io.github.dandidev.hamdsl.format.UnitFormatter
 import io.github.dandidev.hamdsl.units.si.*
 
