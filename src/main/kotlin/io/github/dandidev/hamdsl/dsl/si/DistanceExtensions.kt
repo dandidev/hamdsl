@@ -1,6 +1,6 @@
 package io.github.dandidev.hamdsl.dsl.si
 
-import io.github.dandidev.hamdsl.SI
+import io.github.dandidev.hamdsl.constants.SI
 import io.github.dandidev.hamdsl.units.si.Meter
 
 val Number.Gm get() = Meter(toDouble() * SI.GIGA)

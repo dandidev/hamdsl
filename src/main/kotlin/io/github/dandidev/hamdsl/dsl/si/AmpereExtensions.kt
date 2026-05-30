@@ -1,6 +1,6 @@
 package io.github.dandidev.hamdsl.dsl.si
 
-import io.github.dandidev.hamdsl.SI
+import io.github.dandidev.hamdsl.constants.SI
 import io.github.dandidev.hamdsl.units.si.Ampere
 
 val Number.GA get() = Ampere(toDouble() * SI.GIGA)

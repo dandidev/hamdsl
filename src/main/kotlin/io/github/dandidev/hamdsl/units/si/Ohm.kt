@@ -1,6 +1,6 @@
 package io.github.dandidev.hamdsl.units.si
 
-import io.github.dandidev.hamdsl.SI
+import io.github.dandidev.hamdsl.constants.SI
 
 @JvmInline
 value class Ohm(val value: Double)

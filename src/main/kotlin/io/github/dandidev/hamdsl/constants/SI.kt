@@ -1,4 +1,4 @@
-package io.github.dandidev.hamdsl
+package io.github.dandidev.hamdsl.constants
 
 object SI {
     const val NANO = 1e-9

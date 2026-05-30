@@ -1,12 +1,11 @@
 package io.github.dandidev.hamdsl.math
 
+import io.github.dandidev.hamdsl.constants.Physics.SPEED_OF_LIGHT
 import io.github.dandidev.hamdsl.units.log.Db
 import io.github.dandidev.hamdsl.units.si.Hertz
 import io.github.dandidev.hamdsl.units.si.Meter
 import kotlin.math.PI
 import kotlin.math.log10
-
-private const val SPEED_OF_LIGHT = 299_792_458.0 // m/s
 
 fun fspl(
     distance: Meter,

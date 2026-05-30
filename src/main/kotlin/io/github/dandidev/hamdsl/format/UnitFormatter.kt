@@ -1,6 +1,6 @@
 package io.github.dandidev.hamdsl.format
 
-import io.github.dandidev.hamdsl.SI
+import io.github.dandidev.hamdsl.constants.SI
 import io.github.dandidev.hamdsl.units.log.Db
 import io.github.dandidev.hamdsl.units.log.Dbm
 import io.github.dandidev.hamdsl.units.si.Ampere
