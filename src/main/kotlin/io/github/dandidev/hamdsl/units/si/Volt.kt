@@ -1,31 +1,17 @@
 package io.github.dandidev.hamdsl.units.si
 
 import io.github.dandidev.hamdsl.SI
-import io.github.dandidev.hamdsl.dsl.ScaledUnit
 
 @JvmInline
 value class Volt(val value: Double)
 
-fun Volt.asGigaVolt(): ScaledUnit =
-    ScaledUnit(value / SI.GIGA, "GV")
-
-fun Volt.asMegaVolt(): ScaledUnit =
-    ScaledUnit(value / SI.MEGA, "MV")
-
-fun Volt.asKiloVolt(): ScaledUnit =
-    ScaledUnit(value / SI.KILO, "kV")
-
-fun Volt.asVolt(): ScaledUnit =
-    ScaledUnit(value, "V")
-
-fun Volt.asMilliVolt(): ScaledUnit =
-    ScaledUnit(value / SI.MILLI, "mV")
-
-fun Volt.asMicroVolt(): ScaledUnit =
-    ScaledUnit(value / SI.MICRO, "µV")
-
-fun Volt.asNanoVolt(): ScaledUnit =
-    ScaledUnit(value / SI.NANO, "nV")
+fun Volt.asGigaVolt(): Double = value / SI.GIGA
+fun Volt.asMegaVolt(): Double = value / SI.MEGA
+fun Volt.asKiloVolt(): Double = value / SI.KILO
+fun Volt.asVolt(): Double = value
+fun Volt.asMilliVolt(): Double = value / SI.MILLI
+fun Volt.asMicroVolt(): Double = value / SI.MICRO
+fun Volt.asNanoVolt(): Double = value / SI.NANO
 
 operator fun Volt.div(resistance: Ohm): Ampere =
     Ampere(value / resistance.value)

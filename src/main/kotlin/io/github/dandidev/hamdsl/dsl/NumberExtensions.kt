@@ -82,12 +82,3 @@ val Number.nanoAmpere get() = Ampere(toDouble() * SI.NANO)
 //dB
 val Number.dB get() = Db(toDouble())
 val Number.dBm get() = Dbm(toDouble())
-
-//unit of measure
-data class ScaledUnit(
-    val value: Double,
-    val symbol: String
-) {
-    override fun toString(): String =
-        "%.4f %s".format(value, symbol)
-}
