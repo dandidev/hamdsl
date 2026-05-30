@@ -1,19 +1,6 @@
-import io.github.dandidev.hamdsl.dsl.A
-import io.github.dandidev.hamdsl.dsl.Ohm
-import io.github.dandidev.hamdsl.dsl.V
-import io.github.dandidev.hamdsl.dsl.dB
-import io.github.dandidev.hamdsl.dsl.dBm
-import io.github.dandidev.hamdsl.dsl.mA
+import io.github.dandidev.hamdsl.dsl.*
 import io.github.dandidev.hamdsl.format.UnitFormatter
-import io.github.dandidev.hamdsl.units.*
-import io.github.dandidev.hamdsl.units.si.asGigaVolt
-import io.github.dandidev.hamdsl.units.si.asKiloVolt
-import io.github.dandidev.hamdsl.units.si.asMegaVolt
-import io.github.dandidev.hamdsl.units.si.asMicroVolt
-import io.github.dandidev.hamdsl.units.si.asMilliVolt
-import io.github.dandidev.hamdsl.units.si.asNanoVolt
-import io.github.dandidev.hamdsl.units.si.asVolt
-import io.github.dandidev.hamdsl.units.si.times
+import io.github.dandidev.hamdsl.units.si.*
 
 
 fun main() {
