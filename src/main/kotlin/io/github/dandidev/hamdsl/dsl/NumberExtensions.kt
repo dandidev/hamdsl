@@ -4,6 +4,8 @@ import io.github.dandidev.hamdsl.SI
 import io.github.dandidev.hamdsl.units.log.Db
 import io.github.dandidev.hamdsl.units.log.Dbm
 import io.github.dandidev.hamdsl.units.si.Ampere
+import io.github.dandidev.hamdsl.units.si.Hertz
+import io.github.dandidev.hamdsl.units.si.Meter
 import io.github.dandidev.hamdsl.units.si.Ohm
 import io.github.dandidev.hamdsl.units.si.Volt
 import io.github.dandidev.hamdsl.units.si.Watt
@@ -78,6 +80,42 @@ val Number.uA get() = Ampere(toDouble() * SI.MICRO)
 val Number.microAmpere get() = Ampere(toDouble() * SI.MICRO)
 val Number.nA get() = Ampere(toDouble() * SI.NANO)
 val Number.nanoAmpere get() = Ampere(toDouble() * SI.NANO)
+
+//Meter
+val Number.Gm get() = Meter(toDouble() * SI.GIGA)
+val Number.gigaMeter get() = Meter(toDouble() * SI.GIGA)
+@get:JvmName("getMegaM")
+val Number.Mm get() = Meter(toDouble() * SI.MEGA)
+val Number.megaMeter get() = Meter(toDouble() * SI.MEGA)
+val Number.km get() = Meter(toDouble() * SI.KILO)
+val Number.kiloMeter get() = Meter(toDouble() * SI.KILO)
+val Number.m get() = Meter(toDouble())
+val Number.Meter get() = Meter(toDouble())
+@get:JvmName("getMilliM")
+val Number.mm get() = Meter(toDouble() * SI.MILLI)
+val Number.milliMeter get() = Meter(toDouble() * SI.MILLI)
+val Number.um get() = Meter(toDouble() * SI.MICRO)
+val Number.microMeter get() = Meter(toDouble() * SI.MICRO)
+val Number.nm get() = Meter(toDouble() * SI.NANO)
+val Number.nanoMeter get() = Meter(toDouble() * SI.NANO)
+
+// Hertz
+val Number.GHz get() = Hertz(toDouble() * SI.GIGA)
+val Number.gigaHertz get() = Hertz(toDouble() * SI.GIGA)
+@get:JvmName("getMegaHz")
+val Number.MHz get() = Hertz(toDouble() * SI.MEGA)
+val Number.megaHertz get() = Hertz(toDouble() * SI.MEGA)
+val Number.kHz get() = Hertz(toDouble() * SI.KILO)
+val Number.kiloHertz get() = Hertz(toDouble() * SI.KILO)
+val Number.Hz get() = Hertz(toDouble())
+val Number.hertz get() = Hertz(toDouble())
+@get:JvmName("getMilliHz")
+val Number.mHz get() = Hertz(toDouble() * SI.MILLI)
+val Number.milliHertz get() = Hertz(toDouble() * SI.MILLI)
+val Number.uHz get() = Hertz(toDouble() * SI.MICRO)
+val Number.microHertz get() = Hertz(toDouble() * SI.MICRO)
+val Number.nHz get() = Hertz(toDouble() * SI.NANO)
+val Number.nanoHertz get() = Hertz(toDouble() * SI.NANO)
 
 //dB
 val Number.dB get() = Db(toDouble())
