@@ -59,28 +59,28 @@ class HertzTest {
 
     @Test
     fun `hertz plus hertz returns hertz`() {
-        val current = 1.Hz + 3.5.Hz
+        val current: Hertz = 1.Hz + 3.5.Hz
 
         assertEquals(4.5, current.value, PRECISION)
     }
 
     @Test
     fun `hertz minus hertz returns hertz`() {
-        val current = 1.8.Hz - 0.9.Hz
+        val current: Hertz = 1.8.Hz - 0.9.Hz
 
         assertEquals(0.9, current.value, PRECISION)
     }
 
     @Test
     fun `hertz times scalar returns hertz`() {
-        val current = 1.5.Hz * 3.0
+        val current: Hertz = 1.5.Hz * 3.0
 
         assertEquals(4.5, current.value, PRECISION)
     }
 
     @Test
     fun `hertz divided by scalar returns hertz`() {
-        val current = 3.5.Hz / 2.0
+        val current: Hertz = 3.5.Hz / 2.0
 
         assertEquals(1.75, current.value, PRECISION)
     }

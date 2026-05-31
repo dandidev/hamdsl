@@ -59,28 +59,28 @@ class WattTest {
 
     @Test
     fun `watt plus watt returns watt`() {
-        val current = 1.W + 3.5.W
+        val current: Watt = 1.W + 3.5.W
 
         assertEquals(4.5, current.value, PRECISION)
     }
 
     @Test
     fun `watt minus watt returns watt`() {
-        val current = 1.8.W - 0.9.W
+        val current: Watt = 1.8.W - 0.9.W
 
         assertEquals(0.9, current.value, PRECISION)
     }
 
     @Test
     fun `watt times scalar returns watt`() {
-        val current = 1.5.W * 3.0
+        val current: Watt = 1.5.W * 3.0
 
         assertEquals(4.5, current.value, PRECISION)
     }
 
     @Test
     fun `watt divided by scalar returns watt`() {
-        val current = 3.5.W / 2.0
+        val current: Watt = 3.5.W / 2.0
 
         assertEquals(1.75, current.value, PRECISION)
     }

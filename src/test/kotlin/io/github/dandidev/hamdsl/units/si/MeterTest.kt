@@ -59,28 +59,28 @@ class MeterTest {
 
     @Test
     fun `meter plus meter returns meter`() {
-        val current = 1.m + 3.5.m
+        val current: Meter = 1.m + 3.5.m
 
         assertEquals(4.5, current.value, PRECISION)
     }
 
     @Test
     fun `meter minus meter returns meter`() {
-        val current = 1.8.m - 0.9.m
+        val current: Meter = 1.8.m - 0.9.m
 
         assertEquals(0.9, current.value, PRECISION)
     }
 
     @Test
     fun `meter times scalar returns meter`() {
-        val current = 1.5.m * 3.0
+        val current: Meter = 1.5.m * 3.0
 
         assertEquals(4.5, current.value, PRECISION)
     }
 
     @Test
     fun `meter divided by scalar returns meter`() {
-        val current = 3.5.m / 2.0
+        val current: Meter = 3.5.m / 2.0
 
         assertEquals(1.75, current.value, PRECISION)
     }

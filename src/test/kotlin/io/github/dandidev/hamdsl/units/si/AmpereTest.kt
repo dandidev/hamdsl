@@ -60,35 +60,35 @@ class AmpereTest {
 
     @Test
     fun `ampere plus ampere returns ampere`() {
-        val current = 1.A + 3.5.A
+        val current: Ampere = 1.A + 3.5.A
 
         assertEquals(4.5, current.value, PRECISION)
     }
 
     @Test
     fun `ampere minus ampere returns ampere`() {
-        val current = 1.8.A - 0.9.A
+        val current: Ampere = 1.8.A - 0.9.A
 
         assertEquals(0.9, current.value, PRECISION)
     }
 
     @Test
     fun `ampere times scalar returns ampere`() {
-        val current = 1.5.A * 3.0
+        val current: Ampere = 1.5.A * 3.0
 
         assertEquals(4.5, current.value, PRECISION)
     }
 
     @Test
     fun `ampere divided by scalar returns ampere`() {
-        val current = 3.5.A / 2.0
+        val current: Ampere = 3.5.A / 2.0
 
         assertEquals(1.75, current.value, PRECISION)
     }
 
     @Test
     fun `ampere times ohm returns volt`() {
-        val result = 2.A * 3.Ohm
+        val result: Volt = 2.A * 3.Ohm
 
         assertEquals(6.0, result.value, PRECISION)
     }

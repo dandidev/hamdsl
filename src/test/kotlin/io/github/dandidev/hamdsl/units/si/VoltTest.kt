@@ -61,42 +61,42 @@ class VoltTest {
 
     @Test
     fun `volt plus volt returns volt`() {
-        val current = 1.V + 3.V
+        val current: Volt = 1.V + 3.V
 
         assertEquals(4.0, current.value, PRECISION)
     }
 
     @Test
     fun `volt minus volt returns volt`() {
-        val current = 1.V - 3.V
+        val current: Volt = 1.V - 3.V
 
         assertEquals(-2.0, current.value, PRECISION)
     }
 
     @Test
     fun `volt times scalar returns volt`() {
-        val current = 2.V * 3.0
+        val current: Volt = 2.V * 3.0
 
         assertEquals(6.0, current.value, PRECISION)
     }
 
     @Test
     fun `volt divided by scalar returns volt`() {
-        val current = 2.V / 3.0
+        val current: Volt = 2.V / 3.0
 
         assertEquals(0.666666, current.value, PRECISION)
     }
 
     @Test
     fun `volt divided by ohm returns ampere`() {
-        val current = 12.V / 6.Ohm
+        val current: Ampere = 12.V / 6.Ohm
 
         assertEquals(2.0, current.value, PRECISION)
     }
 
     @Test
     fun `volt divided by ampere returns ohm`() {
-        val resistance = 12.V / 2.Ampere
+        val resistance: Ohm = 12.V / 2.Ampere
 
         assertEquals(6.0, resistance.value, PRECISION)
     }
