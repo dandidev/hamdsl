@@ -56,4 +56,32 @@ class WattTest {
     fun `watt as nano watt`() {
         assertEquals(1_000_000_000.0, 1.W.asNanoWatt(), PRECISION)
     }
+
+    @Test
+    fun `watt plus watt returns watt`() {
+        val current = 1.W + 3.5.W
+
+        assertEquals(4.5, current.value, PRECISION)
+    }
+
+    @Test
+    fun `watt minus watt returns watt`() {
+        val current = 1.8.W - 0.9.W
+
+        assertEquals(0.9, current.value, PRECISION)
+    }
+
+    @Test
+    fun `watt times scalar returns watt`() {
+        val current = 1.5.W * 3.0
+
+        assertEquals(4.5, current.value, PRECISION)
+    }
+
+    @Test
+    fun `watt divided by scalar returns watt`() {
+        val current = 3.5.W / 2.0
+
+        assertEquals(1.75, current.value, PRECISION)
+    }
 }

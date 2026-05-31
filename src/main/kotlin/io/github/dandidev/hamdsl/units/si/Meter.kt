@@ -12,3 +12,15 @@ fun Meter.asMeter(): Double = value
 fun Meter.asMilliMeter(): Double = value / SI.MILLI
 fun Meter.asMicroMeter(): Double = value / SI.MICRO
 fun Meter.asNanoMeter(): Double = value / SI.NANO
+
+operator fun Meter.plus(distance: Meter): Meter =
+    Meter(value + distance.value)
+
+operator fun Meter.minus(distance: Meter): Meter =
+    Meter(value - distance.value)
+
+operator fun Meter.times(value: Double): Meter =
+    Meter(this.value * value)
+
+operator fun Meter.div(value: Double): Meter =
+    Meter(this.value / value)

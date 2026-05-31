@@ -13,5 +13,17 @@ fun Ampere.asMilliAmpere(): Double = value / SI.MILLI
 fun Ampere.asMicroAmpere(): Double = value / SI.MICRO
 fun Ampere.asNanoAmpere(): Double = value / SI.NANO
 
+operator fun Ampere.plus(current: Ampere): Ampere =
+    Ampere(value + current.value)
+
+operator fun Ampere.minus(current: Ampere): Ampere =
+    Ampere(value - current.value)
+
+operator fun Ampere.times(value: Double): Ampere =
+    Ampere(this.value * value)
+
+operator fun Ampere.div(value: Double): Ampere =
+    Ampere(this.value / value)
+
 operator fun Ampere.times(resistance: Ohm): Volt =
     Volt(value * resistance.value)

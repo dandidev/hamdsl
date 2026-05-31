@@ -1,5 +1,6 @@
 package io.github.dandidev.hamdsl.units.si
 
+import io.github.dandidev.hamdsl.dsl.si.A
 import io.github.dandidev.hamdsl.dsl.si.Ohm
 import io.github.dandidev.hamdsl.units.TestConstants.PRECISION
 import kotlin.test.Test
@@ -55,5 +56,40 @@ class OhmTest {
     @Test
     fun `ohm as nano ohm`() {
         assertEquals(1_000_000_000.0, 1.Ohm.asNanoOhm(), PRECISION)
+    }
+
+    @Test
+    fun `ohm plus ohm returns ohm`() {
+        val current = 1.Ohm + 3.5.Ohm
+
+        assertEquals(4.5, current.value, PRECISION)
+    }
+
+    @Test
+    fun `ohm minus ohm returns ohm`() {
+        val current = 1.8.Ohm - 0.9.Ohm
+
+        assertEquals(0.9, current.value, PRECISION)
+    }
+
+    @Test
+    fun `ohm times scalar returns ohm`() {
+        val current = 1.5.Ohm * 3.0
+
+        assertEquals(4.5, current.value, PRECISION)
+    }
+
+    @Test
+    fun `ohm divided by scalar returns ohm`() {
+        val current = 3.5.Ohm / 2.0
+
+        assertEquals(1.75, current.value, PRECISION)
+    }
+
+    @Test
+    fun `ohm times ampere returns volt`() {
+        val result = 2.Ohm * 3.A
+
+        assertEquals(6.0, result.value, PRECISION)
     }
 }

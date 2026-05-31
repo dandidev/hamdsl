@@ -12,3 +12,15 @@ fun Hertz.asHertz(): Double = value
 fun Hertz.asMilliHertz(): Double = value / SI.MILLI
 fun Hertz.asMicroHertz(): Double = value / SI.MICRO
 fun Hertz.asNanoHertz(): Double = value / SI.NANO
+
+operator fun Hertz.plus(frequency: Hertz): Hertz =
+    Hertz(value + frequency.value)
+
+operator fun Hertz.minus(frequency: Hertz): Hertz =
+    Hertz(value - frequency.value)
+
+operator fun Hertz.times(value: Double): Hertz =
+    Hertz(this.value * value)
+
+operator fun Hertz.div(value: Double): Hertz =
+    Hertz(this.value / value)

@@ -12,3 +12,15 @@ fun Watt.asWatt(): Double = value
 fun Watt.asMilliWatt(): Double = value / SI.MILLI
 fun Watt.asMicroWatt(): Double = value / SI.MICRO
 fun Watt.asNanoWatt(): Double = value / SI.NANO
+
+operator fun Watt.plus(power: Watt): Watt =
+    Watt(value + power.value)
+
+operator fun Watt.minus(power: Watt): Watt =
+    Watt(value - power.value)
+
+operator fun Watt.times(value: Double): Watt =
+    Watt(this.value * value)
+
+operator fun Watt.div(value: Double): Watt =
+    Watt(this.value / value)
