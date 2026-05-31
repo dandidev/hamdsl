@@ -13,6 +13,18 @@ fun Volt.asMilliVolt(): Double = value / SI.MILLI
 fun Volt.asMicroVolt(): Double = value / SI.MICRO
 fun Volt.asNanoVolt(): Double = value / SI.NANO
 
+operator fun Volt.plus(voltage: Volt): Volt =
+    Volt(value + voltage.value)
+
+operator fun Volt.minus(voltage: Volt): Volt =
+    Volt(value - voltage.value)
+
+operator fun Volt.times(value: Double): Volt =
+    Volt(this.value * value)
+
+operator fun Volt.div(value: Double): Volt =
+    Volt(this.value / value)
+
 operator fun Volt.div(resistance: Ohm): Ampere =
     Ampere(value / resistance.value)
 
