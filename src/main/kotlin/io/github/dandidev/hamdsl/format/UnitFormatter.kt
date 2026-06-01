@@ -3,11 +3,8 @@ package io.github.dandidev.hamdsl.format
 import io.github.dandidev.hamdsl.constants.SI
 import io.github.dandidev.hamdsl.units.log.Db
 import io.github.dandidev.hamdsl.units.log.Dbm
-import io.github.dandidev.hamdsl.units.si.Ampere
-import io.github.dandidev.hamdsl.units.si.Ohm
-import io.github.dandidev.hamdsl.units.si.Volt
-import io.github.dandidev.hamdsl.units.si.Watt
-import java.util.Locale
+import io.github.dandidev.hamdsl.units.si.*
+import java.util.*
 import kotlin.math.abs
 
 object UnitFormatter {
@@ -30,7 +27,17 @@ object UnitFormatter {
     fun format(resistance: Ohm): String =
         autoSi(resistance.value, "Ω")
 
-    private fun autoSi(value: Double, unit: String): String {
+    fun format(frequency: Hertz): String =
+        autoSi(frequency.value, "Hz")
+
+    fun format(distance: Meter): String =
+        autoSi(distance.value, "m", true)
+
+    private fun autoSi(
+        value: Double,
+        unit: String,
+        useCenti: Boolean = false
+    ): String {
         val absValue = abs(value)
 
         val scaled: Double
@@ -55,6 +62,11 @@ object UnitFormatter {
             absValue >= 1.0 -> {
                 scaled = value
                 symbol = unit
+            }
+
+            useCenti && absValue >= SI.CENTI -> {
+                scaled = value / SI.CENTI
+                symbol = "c$unit"
             }
 
             absValue >= SI.MILLI -> {

@@ -43,6 +43,11 @@ class MeterTest {
     }
 
     @Test
+    fun `meter as centi meter`() {
+        assertEquals(100.0, 1.m.asCentiMeter(), PRECISION)
+    }
+
+    @Test
     fun `meter as milli meter`() {
         assertEquals(1_000.0, 1.m.asMilliMeter(), PRECISION)
     }
