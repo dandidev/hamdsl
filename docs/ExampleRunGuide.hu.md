@@ -1,23 +1,138 @@
 # Példák futtatási útmutató
 
-Ez az útmutató bemutatja, hogyan futtathatók a HamDsl Kotlin Notebook példák egy minimális helyi Jupyter környezetben.
+Ez az útmutató bemutatja a HamDsl használatának két leggyakoribb módját:
 
-## Források
+1. A HamDsl könyvtár használata saját projektben Maven vagy Gradle segítségével.
+2. A mellékelt Kotlin Notebook példák futtatása IntelliJ IDEA vagy JupyterLab használatával.
+
+## HamDsl használata saját projektben
+
+### Követelmények
+
+Győződj meg róla, hogy az alábbi eszközök telepítve vannak:
+
+* Java 21 vagy újabb
+* Internetkapcsolat a Maven függőségek letöltéséhez
+
+### Követelmények telepítése
+
+#### Java / JDK
+
+Az aktuálisan telepített verzió ellenőrzése:
+
+```bash
+java -version
+```
+
+A telepítési útmutató megtalálható az SDKMAN! dokumentációjában:
+
+https://sdkman.io
+
+#### Kotlin
+
+Amennyiben a Kotlin fordítót parancssorból is használni szeretnéd, a telepítési útmutató megtalálható az SDKMAN! dokumentációjában:
+
+https://sdkman.io
+
+### Gradle
+
+```kotlin
+dependencies {
+    implementation("io.github.dandidev:hamdsl:0.1.0-beta.1")
+}
+```
+
+### Maven
+
+```xml
+<dependency>
+    <groupId>io.github.dandidev</groupId>
+    <artifactId>hamdsl</artifactId>
+    <version>0.1.0-beta.1</version>
+</dependency>
+```
+
+### Első számítás
+
+```kotlin
+val voltage = 13.8.V
+val current = 2.A
+
+val power = voltage * current
+
+println(power)
+```
+
+További példák az alábbi könyvtárakban találhatók:
+
+* `examples` – Kotlin példák
+* `examples/notebook` – Kotlin Notebook példák
+
+## Notebook példák futtatása
+
+A HamDsl projekt Kotlin Notebook példákat is tartalmaz, amelyek futtathatók IntelliJ IDEA-ból vagy JupyterLab segítségével.
+
+### Források
 
 Hivatalos dokumentációk:
 
 * Jupyter telepítési útmutató: https://jupyter.org/install
 * Kotlin Jupyter kernel: https://github.com/Kotlin/kotlin-jupyter
+* IntelliJ IDEA: https://www.jetbrains.com/idea/
 
-A JupyterLab telepíthető a `pip install jupyterlab` paranccsal, majd a `jupyter lab` paranccsal indítható el. A Kotlin Jupyter kernel a `pip install kotlin-jupyter-kernel` paranccsal telepíthető.
-
-## Követelmények
+### Követelmények
 
 Győződj meg róla, hogy az alábbi eszközök telepítve vannak:
 
 * Java 21 vagy újabb
 * Python 3
+* Notebook futtatókörnyezet (IntelliJ IDEA vagy JupyterLab)
 * Internetkapcsolat a Maven függőségek letöltéséhez
+
+### Követelmények telepítése
+
+#### Java / JDK
+
+Az aktuálisan telepített verzió ellenőrzése:
+
+```bash
+java -version
+```
+
+A telepítési útmutató megtalálható az SDKMAN! dokumentációjában:
+
+https://sdkman.io
+
+#### Python
+
+Az aktuálisan telepített verzió ellenőrzése:
+
+```bash
+python3 --version
+```
+
+A Python telepítési útmutatója:
+
+https://www.python.org
+
+#### Notebook futtatókörnyezet
+
+A HamDsl notebook példái az alábbi környezetek egyikében futtathatók:
+
+* IntelliJ IDEA Kotlin Notebook támogatással
+* JupyterLab Kotlin Jupyter kernellel
+
+A szükséges eszközök dokumentációja:
+
+* IntelliJ IDEA: https://www.jetbrains.com/idea/
+* Jupyter: https://jupyter.org/install
+* Kotlin Jupyter: https://github.com/Kotlin/kotlin-jupyter
+
+#### Kotlin
+
+A notebook példák futtatásához külön Kotlin telepítés általában nem szükséges.
+
+A Kotlin Jupyter kernel biztosítja a Kotlin támogatást JupyterLab alatt, az IntelliJ IDEA pedig közvetlenül képes Kotlin notebookok futtatására.
 
 ## Példák futtatása IntelliJ IDEA segítségével
 
@@ -39,31 +154,31 @@ Amennyiben a példákat a HamDsl projekten belül futtatod, nincs szükség tov�
 
 Ha nem szeretnéd a teljes projektet IntelliJ IDEA-ba importálni, a példák JupyterLab és a Kotlin Jupyter kernel segítségével is futtathatók.
 
-## Python virtuális környezet létrehozása
+### Python virtuális környezet létrehozása
 
 ```bash
 python3 -m venv venv
 ```
 
-## A virtuális környezet aktiválása
+### A virtuális környezet aktiválása
 
 ```bash
 source venv/bin/activate
 ```
 
-## JupyterLab telepítése
+### JupyterLab telepítése
 
 ```bash
 pip install jupyterlab
 ```
 
-## A Kotlin Jupyter kernel telepítése
+### A Kotlin Jupyter kernel telepítése
 
 ```bash
 pip install kotlin-jupyter-kernel
 ```
 
-## JupyterLab indítása
+### JupyterLab indítása
 
 ```bash
 jupyter lab
@@ -71,7 +186,7 @@ jupyter lab
 
 A JupyterLab ezt követően megnyílik a böngészőben.
 
-## Notebook példa megnyitása
+### Notebook példa megnyitása
 
 Nyisd meg valamelyik notebookot az alábbi könyvtárból:
 
