@@ -26,12 +26,16 @@ A projekt fejlődése szorosan kapcsolódik a rádióamatőr tanulmányokhoz, ez
 
 ## Példák futtatása
 
-A projekt példái az alábbi formákban érhetők el:
+A példaszámítások az alábbi formában érhetők el:
 
-* Kotlin script
-* Kotlin Notebook
+- Kotlin szkriptek
+- Kotlin Notebookok
 
-A példák futtathatók IntelliJ IDEA környezetből vagy bármely Kotlin Notebook kompatibilis környezetből.
+A példák közvetlenül futtathatók IntelliJ IDEA-ból vagy bármely olyan környezetből, amely támogatja a Kotlin Notebookot.
+
+A részletes telepítési és futtatási útmutató itt található:
+
+- [Példák futtatási útmutató](docs/ExampleRunGuide.hu.md)
 
 ## Licenc
 

@@ -26,10 +26,14 @@ The library currently focuses on physical units and engineering calculations use
 
 Example calculations are available as:
 
-* Kotlin scripts
-* Kotlin Notebooks
+- Kotlin scripts
+- Kotlin Notebooks
 
 Examples can be executed directly from IntelliJ IDEA or any environment that supports Kotlin Notebook.
+
+For detailed setup and execution instructions, see:
+
+- [Example Run Guide](docs/ExampleRunGuide.md)
 
 ## License
 
