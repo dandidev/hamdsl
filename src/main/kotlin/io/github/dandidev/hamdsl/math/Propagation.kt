@@ -7,6 +7,51 @@ import io.github.dandidev.hamdsl.units.si.Meter
 import kotlin.math.PI
 import kotlin.math.log10
 
+/**
+ * Calculates free-space path loss between an isotropic transmitter and receiver.
+ *
+ * Mathematical background:
+ *
+ *     FSPL = 20 × log10((4π × d × f) / c)
+ *
+ * where:
+ *
+ *     FSPL = free-space path loss [dB]
+ *     d    = distance between transmitter and receiver [m]
+ *     f    = frequency [Hz]
+ *     c    = speed of light [m/s] (≈ 299,792,458 m/s)
+ *
+ * The formula assumes:
+ *
+ * - free-space propagation (no obstacles, reflections, or atmospheric effects)
+ * - isotropic antennas at both ends
+ * - far-field conditions
+ * - distance expressed in meters
+ * - frequency expressed in hertz
+ *
+ * Parameters:
+ * - distance.value: distance between transmitter and receiver [m]
+ * - frequency.value: operating frequency [Hz]
+ *
+ * Result:
+ * - free-space path loss in decibels [dB]
+ *
+ * Examples:
+ *
+ *     2 m at 443 MHz (UHF)
+ *
+ *         FSPL = 20 × log10((4π × 2 × 443 × 10⁶) / 299,792,458)
+ *         FSPL ≈ 39.4 dB
+ *
+ *     10 km at 14.2 MHz (20m band)
+ *
+ *         FSPL = 20 × log10((4π × 10,000 × 14.2 × 10⁶) / 299,792,458)
+ *         FSPL ≈ 65.5 dB
+ *
+ * Typical RF usage:
+ *
+ *     val pathLoss = fspl(2.m, 443.MHz)
+ */
 fun fspl(
     distance: Meter,
     frequency: Hertz
