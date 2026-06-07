@@ -50,6 +50,11 @@ object UnitFormatter {
         val symbol: String
 
         when {
+            absValue >= SI.TERA -> {
+                scaled = value / SI.TERA
+                symbol = "T$unit"
+            }
+
             absValue >= SI.GIGA -> {
                 scaled = value / SI.GIGA
                 symbol = "G$unit"
@@ -93,6 +98,11 @@ object UnitFormatter {
             absValue >= SI.PICO -> {
                 scaled = value / SI.PICO
                 symbol = "p$unit"
+            }
+
+            absValue >= SI.FEMTO -> {
+                scaled = value / SI.FEMTO
+                symbol = "f$unit"
             }
 
             else -> {

@@ -1,7 +1,7 @@
 package io.github.dandidev.hamdsl.units.si
 
-import io.github.dandidev.hamdsl.dsl.si.Ampere
-import io.github.dandidev.hamdsl.dsl.si.Ohm
+import io.github.dandidev.hamdsl.dsl.si.ampere
+import io.github.dandidev.hamdsl.dsl.si.ohm
 import io.github.dandidev.hamdsl.dsl.si.V
 import io.github.dandidev.hamdsl.units.TestConstants.PRECISION
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -89,14 +89,14 @@ class VoltTest {
 
     @Test
     fun `volt divided by ohm returns ampere`() {
-        val current: Ampere = 12.V / 6.Ohm
+        val current: Ampere = 12.V / 6.ohm
 
         assertEquals(2.0, current.value, PRECISION)
     }
 
     @Test
     fun `volt divided by ampere returns ohm`() {
-        val resistance: Ohm = 12.V / 2.Ampere
+        val resistance: Ohm = 12.V / 2.ampere
 
         assertEquals(6.0, resistance.value, PRECISION)
     }

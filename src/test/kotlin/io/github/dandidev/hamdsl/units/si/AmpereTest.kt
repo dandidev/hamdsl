@@ -1,7 +1,7 @@
 package io.github.dandidev.hamdsl.units.si
 
 import io.github.dandidev.hamdsl.dsl.si.A
-import io.github.dandidev.hamdsl.dsl.si.Ohm
+import io.github.dandidev.hamdsl.dsl.si.ohm
 import io.github.dandidev.hamdsl.units.TestConstants.PRECISION
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
@@ -88,7 +88,7 @@ class AmpereTest {
 
     @Test
     fun `ampere times ohm returns volt`() {
-        val result: Volt = 2.A * 3.Ohm
+        val result: Volt = 2.A * 3.ohm
 
         assertEquals(6.0, result.value, PRECISION)
     }

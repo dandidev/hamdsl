@@ -1,8 +1,8 @@
 package io.github.dandidev.hamdsl.examples
 
 import io.github.dandidev.hamdsl.dsl.log.dB
-import io.github.dandidev.hamdsl.dsl.si.Ohm
 import io.github.dandidev.hamdsl.dsl.si.W
+import io.github.dandidev.hamdsl.dsl.si.ohm
 import io.github.dandidev.hamdsl.dsl.si.uV
 import io.github.dandidev.hamdsl.format.UnitFormatter
 import io.github.dandidev.hamdsl.math.toDbm
@@ -25,7 +25,7 @@ fun main() {
     // Receiver minimum sensitivity
     val rxMinSensitivity =
         0.2.uV
-            .toWatt(50.Ohm)
+            .toWatt(50.ohm)
             .toDbm()
 
     // Total attenuation required to reach sensitivity limit
