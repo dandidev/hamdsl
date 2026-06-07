@@ -33,6 +33,9 @@ object UnitFormatter {
     fun format(capacitance: Farad): String =
         autoSi(capacitance.value, "F")
 
+    fun format(inductance: Henry): String =
+        autoSi(inductance.value, "H")
+
     fun format(distance: Meter): String =
         autoSi(distance.value, "m", true)
 
