@@ -1,6 +1,7 @@
 package io.github.dandidev.hamdsl.constants
 
 object SI {
+    const val PICO = 1e-12
     const val NANO = 1e-9
     const val MICRO = 1e-6
     const val MILLI = 1e-3

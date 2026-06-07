@@ -30,6 +30,9 @@ object UnitFormatter {
     fun format(frequency: Hertz): String =
         autoSi(frequency.value, "Hz")
 
+    fun format(capacitance: Farad): String =
+        autoSi(capacitance.value, "F")
+
     fun format(distance: Meter): String =
         autoSi(distance.value, "m", true)
 
@@ -82,6 +85,11 @@ object UnitFormatter {
             absValue >= SI.NANO -> {
                 scaled = value / SI.NANO
                 symbol = "n$unit"
+            }
+
+            absValue >= SI.PICO -> {
+                scaled = value / SI.PICO
+                symbol = "p$unit"
             }
 
             else -> {
