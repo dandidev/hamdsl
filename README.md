@@ -1,12 +1,38 @@
-# HamDsl
+# HamDSL
 
-Type-safe Kotlin library for amateur radio calculations.
+A type-safe Kotlin DSL for amateur radio calculations.
 
-HamDsl started as a personal learning project focused on amateur radio and electronics calculations.
+```kotlin
+// Reactance
+val xc = capacitiveReactance(7.1.MHz, 100.pF)
+val xl = inductiveReactance(7.1.MHz, 10.uH)
 
-The library provides strongly typed units and reusable formulas while gradually expanding with new calculations and engineering concepts.
+// Ohm's law
+val voltage = 13.8.V
+val current = 2.A
+val resistance = voltage / current
 
-## Getting Started
+// Attenuator chain
+val attenuators = 30.dB + 20.dB + 10.dB
+
+// Free-space path loss
+val pathLoss = fspl(10.km, 443.MHz)
+val linkMargin = 37.dBm - attenuators - pathLoss
+```
+
+## What's Included
+
+| Topic | Calculations |
+|-------|-------------|
+| Power | `P = U × I`, `P = U² / R`, `P = I² × R`, `Watt ↔ dBm` |
+| Ohm's Law | `U = I × R`, `I = U / R`, `R = U / I` |
+| Reactance | Capacitive `XC`, Inductive `XL` |
+| LC Resonance | Resonant frequency, required `L`, required `C` |
+| Propagation | Free-space path loss, wavelength |
+
+More calculations are added with each release.
+
+## Dependency
 
 ### Gradle
 
@@ -26,48 +52,169 @@ dependencies {
 </dependency>
 ```
 
-### First calculation
+## Build from Source
 
-```kotlin
-val voltage = 13.8.V
-val current = 2.A
+Clone the `develop` branch and build locally:
 
-val power = voltage * current
-
-println(power)
+```bash
+git clone -b develop https://github.com/dandidev/hamdsl.git
+cd hamdsl
+./gradlew build
 ```
 
-Examples are available in:
+On Windows:
 
-- `examples` – Kotlin examples
-- `examples/notebook` – Kotlin Notebook examples
+```bash
+gradlew.bat build
+```
 
-Examples can be executed directly from IntelliJ IDEA or any environment that supports Kotlin Notebook.
+To use the locally built version in your own project:
 
-For detailed setup and execution instructions, see:
+```bash
+./gradlew publishToMavenLocal
+```
 
-- [Example Run Guide](docs/ExampleRunGuide.md)
+<details>
+<summary>Prerequisites — Java, Kotlin, Gradle</summary>
 
-## Features
+### Java
 
-* SI units
-* dB and dBm calculations
-* Power, voltage, current and resistance calculations
-* Free-space path loss (FSPL)
-* Wavelength calculations
-* Type-safe operators
-* Example calculations
+Verify if Java is already installed:
 
-## Project Status
+```bash
+java -version
+```
 
-HamDsl is under active development.
+Java 21 or newer is required. Install via SDKMAN!:
 
-The library currently focuses on physical units and engineering calculations used in amateur radio. Additional calculations and utilities will be added over time.
+```bash
+curl -s "https://get.sdkman.io" | bash
+sdk install java
+```
 
-## License
+Official documentation: https://sdkman.io
 
-GNU General Public License v3.0 (GPL-3.0)
+### Kotlin
 
-## Documentation
-- 🇬🇧 English: README.md
-- 🇭🇺 Magyar: [README.hu.md](README.hu.md)
+Verify if Kotlin is already installed:
+
+```bash
+kotlin -version
+```
+
+Install via SDKMAN!:
+
+```bash
+sdk install kotlin
+```
+
+Official documentation: https://kotlinlang.org/docs/getting-started.html
+
+### Gradle
+
+Verify if Gradle is already installed:
+
+```bash
+gradle -version
+```
+
+Install via SDKMAN!:
+
+```bash
+sdk install gradle
+```
+
+Official documentation: https://gradle.org/install/
+
+</details>
+
+## Run a Notebook Example
+
+### Requirements
+
+- Python 3 — https://www.python.org/downloads/
+- Java 21 or newer — see Prerequisites section below
+
+### Linux / macOS
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install jupyterlab
+pip install kotlin-jupyter-kernel
+jupyter lab
+```
+
+### Windows
+
+```bash
+python3 -m venv venv
+venv\Scripts\activate
+pip install jupyterlab
+pip install kotlin-jupyter-kernel
+jupyter lab
+```
+
+JupyterLab will open in your browser. Navigate to:
+
+```text
+src/main/kotlin/io/github/dandidev/hamdsl/examples/notebook
+```
+
+Open any `.ipynb` file and select the **Kotlin** kernel when prompted.
+
+### Using HamDSL from Maven Central in a Standalone Notebook
+
+```kotlin
+@file:DependsOn("io.github.dandidev:hamdsl:0.1.0-beta.1")
+```
+
+### Using a Local Development Version
+
+```kotlin
+@file:Repository("*mavenLocal")
+@file:DependsOn("io.github.dandidev:hamdsl:0.1.0-beta.1")
+```
+
+## Using HamDSL in Kotlin
+
+Import the DSL extensions and math functions:
+
+```kotlin
+import io.github.dandidev.hamdsl.dsl.si.*
+import io.github.dandidev.hamdsl.dsl.log.*
+import io.github.dandidev.hamdsl.math.*
+
+fun main() {
+    // Ohm's law
+    val voltage = 13.8.V
+    val current = 2.A
+    val resistance = voltage / current
+
+    // Reactance
+    val xc = capacitiveReactance(7.1.MHz, 100.pF)
+    val xl = inductiveReactance(7.1.MHz, 10.uH)
+
+    // LC resonance
+    val frequency = resonantFrequency(10.uH, 100.pF)
+
+    // Power
+    val power = voltage.toWatt(current)
+    val level = power.toDbm()
+
+    // Free-space path loss
+    val attenuators = 30.dB + 20.dB + 10.dB
+    val pathLoss = fspl(10.km, 443.MHz)
+    val linkMargin = 37.dBm - attenuators - pathLoss
+
+    println(UnitFormatter.format(resistance))
+    println(UnitFormatter.format(xc))
+    println(UnitFormatter.format(level))
+    println(UnitFormatter.format(linkMargin))
+}
+```
+
+More examples are available in:
+
+- `src/main/kotlin/io/github/dandidev/hamdsl/examples` — Kotlin examples
+- `src/main/kotlin/io/github/dandidev/hamdsl/examples/notebook` — Kotlin Notebook examples
