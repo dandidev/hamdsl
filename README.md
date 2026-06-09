@@ -30,6 +30,8 @@ val linkMargin = 37.dBm - attenuators - pathLoss
 | LC Resonance | Resonant frequency, required `L`, required `C` |
 | Propagation | Free-space path loss, wavelength |
 
+All calculations use `Double` precision floating-point arithmetic (IEEE 754), accurate to approximately 15–16 significant digits.
+
 More calculations are added with each release.
 
 ## Dependency
