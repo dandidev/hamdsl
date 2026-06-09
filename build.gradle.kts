@@ -72,3 +72,7 @@ signing {
     useGpgCmd()
     sign(publishing.publications["maven"])
 }
+
+tasks.withType<Sign>().configureEach {
+    onlyIf { !gradle.taskGraph.hasTask(":publishToMavenLocal") }
+}
